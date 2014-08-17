@@ -7,6 +7,13 @@ if !exists('g:sweep_trail_enable')
 endif
 
 
+function! sweep_trail#enable_toggle()
+    let g:sweep_trail_enable = g:sweep_trail_enable? 0 : 1
+
+    echo printf('g:sweep_trail_enable = %d', g:sweep_trail_enable)
+    return g:sweep_trail_enable
+endfunction
+
 "
 " カレントバッファの不要な末尾空白を消去する。
 "
