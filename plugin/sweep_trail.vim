@@ -1,5 +1,5 @@
 
-command! -bar SweepTrail             call sweep_trail#sweep()
+command! -bar -range=% SweepTrail    <line1>,<line2>call sweep_trail#sweep()
 command! -bar SweepTrailEnableToggle call sweep_trail#enable_toggle()
 
 

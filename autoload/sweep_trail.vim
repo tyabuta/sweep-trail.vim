@@ -17,12 +17,13 @@ endfunction
 "
 " カレントバッファの不要な末尾空白を消去する。
 "
-function! sweep_trail#sweep()
+function! sweep_trail#sweep() range
     let pos = getpos(".")
 
     " マッチしない場合にError表示が出るのでトラップする。
     try
-        %s/\s\+$//
+        let cmd = printf('%d,%ds/\s\+$//', a:firstline, a:lastline)
+        execute cmd
     catch
     endtry
 
