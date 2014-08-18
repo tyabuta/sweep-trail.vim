@@ -34,6 +34,6 @@ endfunction
 
 function! sweep_trail#auto_sweep()
     if 0 == g:sweep_trail_enable | return | endif
-    call sweep_trail#sweep()
+    %call sweep_trail#sweep()
 endfunction
 
