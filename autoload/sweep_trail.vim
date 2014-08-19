@@ -18,8 +18,6 @@ endfunction
 " カレントバッファの不要な末尾空白を消去する。
 "
 function! sweep_trail#sweep() range
-    let pos = getpos(".")
-
     " マッチしない場合にError表示が出るのでトラップする。
     try
         let cmd = printf('%d,%ds/\s\+$//', a:firstline, a:lastline)
@@ -27,13 +25,14 @@ function! sweep_trail#sweep() range
     catch
     endtry
 
-    call setpos(".", pos)
     echo 'clear whitespace!'
 endfunction
 
 
 function! sweep_trail#auto_sweep()
     if 0 == g:sweep_trail_enable | return | endif
+    let pos = getpos(".")
     %call sweep_trail#sweep()
+    call setpos(".", pos)
 endfunction
 
